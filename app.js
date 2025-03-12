@@ -4,11 +4,13 @@ let imgAmigo= document.getElementById("amigoimg")
 let buttonLimpiar= document.getElementById("nuevo")
 let lista = document.getElementById("listaAmigos");
 let resultado = document.getElementById("resultado")
+let inputAmigo = document.getElementById("amigo");
 
 formatoInicial();
 
 function formatoInicial(){
     nombres=[] 
+    inputAmigo.value = "";
     buttonLimpiar.style.display="none";
     imgAmigo.setAttribute("src", "https://definicion.de/wp-content/uploads/2014/05/silencio.png");
     resultado.textContent = "";
@@ -16,14 +18,13 @@ function formatoInicial(){
 }
 
 function agregarAmigo() {
-    let input = document.getElementById("amigo");
-    let nombre = input.value.trim();
+    let nombre = inputAmigo.value.trim();
     if (nombre) {
         nombres.push(nombre);
         let li = document.createElement("li");
         li.textContent = nombre;
         lista.appendChild(li);
-        input.value = "";
+        inputAmigo.value = "";
     } else {
         alert("Por favor, escribe un nombre.");
     }
